@@ -11,6 +11,7 @@ import HistoryPage from "./pages/HistoryPage/HistoryPage.tsx";
 import SearchPage from "./pages/SearchPage/SearchPage.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
+import { RequireAuth } from "./helpers/RequireAuth.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -20,8 +21,22 @@ createRoot(document.getElementById("root")!).render(
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/signin" element={<SigninPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route
+              path="/signup"
+              element={
+                <RequireAuth>
+                  <SignupPage />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <RequireAuth>
+                  <FavoritesPage />
+                </RequireAuth>
+              }
+            />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/movie/:movieId" element={<SearchPage />} />
