@@ -22,14 +22,7 @@ createRoot(document.getElementById("root")!).render(
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/signin" element={<SigninPage />} />
-            <Route
-              path="/signup"
-              element={
-                <RequireAuth>
-                  <SignupPage />
-                </RequireAuth>
-              }
-            />
+            <Route path="/signup" element={<SignupPage />} />
             <Route
               path="/favorites"
               element={
@@ -38,7 +31,14 @@ createRoot(document.getElementById("root")!).render(
                 </RequireAuth>
               }
             />
-            <Route path="/history" element={<HistoryPage />} />
+            <Route
+              path="/history"
+              element={
+                <RequireAuth>
+                  <HistoryPage />
+                </RequireAuth>
+              }
+            />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/movie/:movieId" element={<SearchPage />} />
             <Route path="*" element={<NotFoundPage />} />
