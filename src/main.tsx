@@ -12,6 +12,7 @@ import SearchPage from "./pages/SearchPage/SearchPage.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 import { RequireAuth } from "./helpers/RequireAuth.tsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -40,6 +41,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/movie/:movieId" element={<SearchPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
