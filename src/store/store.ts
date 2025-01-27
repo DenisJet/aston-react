@@ -1,9 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
+import userSlice, { USER_PERSISTENT_STATE } from "./user.slice";
+import { saveState } from "../helpers/authLocalStorage";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { user: userSlice },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+});
+
+store.subscribe(() => {
+  saveState({ jwt: store.getState().user.jwt }, USER_PERSISTENT_STATE);
 });
 
 export type RootState = ReturnType<typeof store.getState>;
