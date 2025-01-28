@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 import { FormEvent, useEffect } from "react";
 import { login, userActions } from "../../store/user.slice";
+import { ROUTES } from "../../constants/routes.constants";
 
 export type TSigninForm = {
   email: {
@@ -21,7 +22,7 @@ export default function SigninForm() {
 
   useEffect(() => {
     if (jwt) {
-      navigate("/");
+      navigate(ROUTES.home);
     }
   }, [jwt, navigate]);
 
@@ -74,7 +75,7 @@ export default function SigninForm() {
       </form>
       <div className="flex gap-2">
         <div>Нет аккаунта?</div>
-        <Link className="link link-primary" to="/signup">
+        <Link className="link link-primary" to={ROUTES.signup}>
           Регистрация
         </Link>
       </div>

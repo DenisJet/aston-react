@@ -13,6 +13,8 @@ import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 import { RequireAuth } from "./helpers/RequireAuth.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
+import { ROUTES } from "./constants/routes.constants.ts";
+import MoviePage from "./pages/MoviePage/MoviePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,10 +23,10 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/signin" element={<SigninPage />} />
-            <Route path="/signup" element={<SignupPage />} />
+            <Route path={ROUTES.signin} element={<SigninPage />} />
+            <Route path={ROUTES.signup} element={<SignupPage />} />
             <Route
-              path="/favorites"
+              path={ROUTES.favorites}
               element={
                 <RequireAuth>
                   <FavoritesPage />
@@ -32,16 +34,16 @@ createRoot(document.getElementById("root")!).render(
               }
             />
             <Route
-              path="/history"
+              path={ROUTES.history}
               element={
                 <RequireAuth>
                   <HistoryPage />
                 </RequireAuth>
               }
             />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/movie/:movieId" element={<SearchPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path={ROUTES.search} element={<SearchPage />} />
+            <Route path={ROUTES.movie} element={<MoviePage />} />
+            <Route path={ROUTES.notFound} element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

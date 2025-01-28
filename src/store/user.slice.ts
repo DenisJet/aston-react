@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loadState } from "../helpers/authLocalStorage";
 import { LoginResponse } from "../interfaces/auth.interface";
 import axios, { AxiosError } from "axios";
-import { AUTH_BASE_URL } from "../constants/auth.constants";
+import { AUTH_BASE_URL, AUTH_ROUTES } from "../constants/auth.constants";
 import { Profile } from "../interfaces/user.interface";
 import { RootState } from "./store";
 
@@ -28,7 +28,7 @@ export const login = createAsyncThunk(
   async (params: { email: string; password: string }) => {
     try {
       const { data } = await axios.post<LoginResponse>(
-        `${AUTH_BASE_URL}/auth`,
+        `${AUTH_BASE_URL}${AUTH_ROUTES.auth}`,
         {
           email: params.email,
           password: params.password,
@@ -48,7 +48,7 @@ export const register = createAsyncThunk(
   async (params: { email: string; password: string }) => {
     try {
       const { data } = await axios.post<LoginResponse>(
-        `${AUTH_BASE_URL}/register`,
+        `${AUTH_BASE_URL}${AUTH_ROUTES.register}`,
         {
           email: params.email,
           password: params.password,
@@ -67,11 +67,14 @@ export const getProfile = createAsyncThunk<Profile, void, { state: RootState }>(
   "user/getProfile",
   async (_, thunkApi) => {
     const jwt = thunkApi.getState().user.jwt;
-    const { data } = await axios.get<Profile>(`${AUTH_BASE_URL}/auth_me`, {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
+    const { data } = await axios.get<Profile>(
+      `${AUTH_BASE_URL}${AUTH_ROUTES.authMe}`,
+      {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       },
-    });
+    );
     return data;
   },
 );
