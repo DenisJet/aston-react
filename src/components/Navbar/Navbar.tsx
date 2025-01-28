@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
-import { userActions } from "../../store/user.slice";
+import { userActions } from "../../store/user/user.slice";
 import { ROUTES } from "../../constants/routes.constants";
 
 export default function Navbar() {

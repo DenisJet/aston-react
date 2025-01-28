@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router";
-import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch } from "../../store/store";
 import { FormEvent, useEffect } from "react";
-import { register, userActions } from "../../store/user.slice";
+import { register, userActions } from "../../store/user/user.slice";
 import { ROUTES } from "../../constants/routes.constants";
+import {
+  useSelectJwt,
+  useSelectRegisterErrorMessage,
+} from "../../store/user/user.selectors";
 
 export type SignupForm = {
   email: {
@@ -16,9 +20,8 @@ export type SignupForm = {
 export default function SignupForm() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { jwt, registerErrorMessage } = useAppSelector(
-    (state: RootState) => state.user,
-  );
+  const jwt = useSelectJwt();
+  const registerErrorMessage = useSelectRegisterErrorMessage();
 
   useEffect(() => {
     if (jwt) {

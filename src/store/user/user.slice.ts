@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loadState } from "../helpers/authLocalStorage";
-import { LoginResponse } from "../interfaces/auth.interface";
+import { loadState } from "../../helpers/authLocalStorage";
+import { LoginResponse } from "../../interfaces/auth.interface";
 import axios, { AxiosError } from "axios";
-import { AUTH_BASE_URL, AUTH_ROUTES } from "../constants/auth.constants";
-import { Profile } from "../interfaces/user.interface";
-import { RootState } from "./store";
+import { AUTH_BASE_URL, AUTH_ROUTES } from "../../constants/auth.constants";
+import { Profile } from "../../interfaces/user.interface";
+import { RootState } from "../store";
 
 export const USER_PERSISTENT_STATE = "userData";
 

@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router";
-import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
+import { useAppDispatch } from "../../store/store";
 import { FormEvent, useEffect } from "react";
-import { login, userActions } from "../../store/user.slice";
+import { login, userActions } from "../../store/user/user.slice";
 import { ROUTES } from "../../constants/routes.constants";
+import {
+  useSelectJwt,
+  useSelectLoginErrorMessage,
+} from "../../store/user/user.selectors";
 
 export type SigninForm = {
   email: {
@@ -16,9 +20,8 @@ export type SigninForm = {
 export default function SigninForm() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { jwt, loginErrorMessage } = useAppSelector(
-    (state: RootState) => state.user,
-  );
+  const jwt = useSelectJwt();
+  const loginErrorMessage = useSelectLoginErrorMessage();
 
   useEffect(() => {
     if (jwt) {
