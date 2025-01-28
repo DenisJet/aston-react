@@ -1,6 +1,6 @@
 export const SearchBar = () => {
 	return (
-		<label className="input hover:scale-110 duration-300 me-5 input-bordered flex items-center gap-2">
+		<label className="input hover:scale-110 duration-300 input-bordered flex items-center gap-2">
 		<input type="text" className="grow" placeholder="Search" />
 		<svg
 		  xmlns="http://www.w3.org/2000/svg"

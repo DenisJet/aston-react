@@ -84,7 +84,7 @@ import { SearchBar } from './SearchBar';
 
 const Navbar = () => {
   return (
-    <div className="navbar border-3 border-double justify-between bg-linear-to-t  from-sky-500 to-indigo-500 bg-base-100 shadow-sm">
+    <div className="navbar flex-col gap-3 border-3 border-double sm:flex-row sm:justify-between bg-linear-to-t  from-sky-500 to-indigo-500 bg-base-100 shadow-sm">
       <div>	
         <Logo />
       </div>
