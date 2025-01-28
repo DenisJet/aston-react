@@ -4,7 +4,7 @@ import { FormEvent, useEffect } from "react";
 import { register, userActions } from "../../store/user.slice";
 import { ROUTES } from "../../constants/routes.constants";
 
-export type TSignupForm = {
+export type SignupForm = {
   email: {
     value: string;
   };
@@ -27,9 +27,8 @@ export default function SignupForm() {
   }, [jwt, navigate]);
 
   const submit = async (e: FormEvent) => {
-    e.preventDefault();
     dispatch(userActions.clearRegisterError());
-    const target = e.target as typeof e.target & TSignupForm;
+    const target = e.target as typeof e.target & SignupForm;
     const { email, password } = target;
     dispatch(
       register({
@@ -46,7 +45,7 @@ export default function SignupForm() {
         <p className="text-red-500">{registerErrorMessage}</p>
       )}
       <p className="text-center">
-        Добро пожаловать! Пожалуйста введите Ваш email и пароль.
+        Добро пожаловать! Пожалуйста, введите Ваш email и пароль.
       </p>
       <form className="flex flex-col gap-4" onSubmit={submit}>
         <div className="flex flex-col">

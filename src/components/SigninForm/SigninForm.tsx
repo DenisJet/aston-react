@@ -4,7 +4,7 @@ import { FormEvent, useEffect } from "react";
 import { login, userActions } from "../../store/user.slice";
 import { ROUTES } from "../../constants/routes.constants";
 
-export type TSigninForm = {
+export type SigninForm = {
   email: {
     value: string;
   };
@@ -27,9 +27,8 @@ export default function SigninForm() {
   }, [jwt, navigate]);
 
   const submit = async (e: FormEvent) => {
-    e.preventDefault();
     dispatch(userActions.clearRegisterError());
-    const target = e.target as typeof e.target & TSigninForm;
+    const target = e.target as typeof e.target & SigninForm;
     const { email, password } = target;
     dispatch(
       login({
@@ -44,7 +43,7 @@ export default function SigninForm() {
       <h1 className="text-2xl font-semibold text-center">Вход</h1>
       {loginErrorMessage && <p className="text-red-500">{loginErrorMessage}</p>}
       <p className="text-center">
-        Добро пожаловать! Пожалуйста введите Ваш email и пароль.
+        Добро пожаловать! Пожалуйста, введите Ваш email и пароль.
       </p>
       <form className="flex flex-col gap-4" onSubmit={submit}>
         <div className="flex flex-col">
