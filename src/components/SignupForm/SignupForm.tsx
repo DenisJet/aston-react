@@ -30,6 +30,7 @@ export default function SignupForm() {
   }, [jwt, navigate]);
 
   const submit = async (e: FormEvent) => {
+    e.preventDefault();
     dispatch(userActions.clearRegisterError());
     const target = e.target as typeof e.target & SignupForm;
     const { email, password } = target;
