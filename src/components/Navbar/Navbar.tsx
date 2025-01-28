@@ -36,19 +36,7 @@ export default function Navbar() {
               <img alt="Tailwind CSS Navbar component" src="/user.svg" />
             </div>
           </div>
-          {!jwt && (
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link to={ROUTES.signin} className="text-base">
-                  Login
-                </Link>
-              </li>
-            </ul>
-          )}
-          {jwt && (
+          {jwt ? (
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -67,6 +55,17 @@ export default function Navbar() {
                 <a className="text-base" onClick={logout}>
                   Logout
                 </a>
+              </li>
+            </ul>
+          ) : (
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <Link to={ROUTES.signin} className="text-base">
+                  Login
+                </Link>
               </li>
             </ul>
           )}
