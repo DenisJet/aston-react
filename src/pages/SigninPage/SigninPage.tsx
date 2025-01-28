@@ -1,3 +1,9 @@
+import SigninForm from "../../components/SigninForm/SigninForm";
+
 export default function SigninPage() {
-  return <h1 className="text-center text-6xl font-semibold">Signin Page</h1>;
+  return (
+    <div className="flex justify-center pt-8 mt-8">
+      <SigninForm />
+    </div>
+  );
 }
