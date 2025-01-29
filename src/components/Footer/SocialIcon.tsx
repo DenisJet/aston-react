@@ -2,8 +2,9 @@ import { Link } from "react-router";
 
 const SocialIcon = () => {
 	return (
-	  <Link to={'/https://github.com/DenisJet/aston-react'} target="_blank" rel="noopener noreferrer">
+	  <Link to={'https://github.com/DenisJet/aston-react'} target="_blank" rel="noopener noreferrer">
 		<svg
+		className="animate-spin"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
