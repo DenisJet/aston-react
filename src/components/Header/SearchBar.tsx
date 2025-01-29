@@ -1,7 +1,7 @@
 export const SearchBar = () => {
 	return (
-		<label className="input hover:scale-110 duration-300 input-bordered flex items-center  w-[200px] gap-2">
-		<input type="text"  placeholder="Search" />
+		<label className="input hover:scale-110 sm:mx-5 duration-300 input-bordered flex items-center  w-[200px]  gap-4">
+		<input type="text"   placeholder="Search" />
 		<svg
 		  xmlns="http://www.w3.org/2000/svg"
 		  viewBox="0 0 16 16"

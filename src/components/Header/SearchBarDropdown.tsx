@@ -2,10 +2,10 @@
 function  SearchBarDropdown() {
 	return ( 
 		<div className="dropdown">
-		<div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+		<div tabIndex={0} role="button"  className="btn btn-ghost bg-amber-50 btn-circle">
 		  <svg
 			xmlns="http://www.w3.org/2000/svg"
-			className="h-5 w-5"
+			className="h-5 w-5 rounded-2xl text-white sm:text-black"
 			fill="none"
 			viewBox="0 0 24 24"
 			stroke="currentColor">
@@ -18,9 +18,9 @@ function  SearchBarDropdown() {
 		</div>
 		<ul
 		  tabIndex={0}
-		  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-40 ml-1 w-52 p-2 shadow">
+		  className="menu menu-sm dropdown-content bg-base-100   rounded-box  absolute  ml-1 w-52 p-2 shadow">
 		  <li><a>По убыванию</a></li>
-		  <li><a>По возрастанею</a></li>
+		  <li><a>По возрастанию</a></li>
 		</ul>
 	  </div>
 	 );

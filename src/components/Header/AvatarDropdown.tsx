@@ -18,8 +18,8 @@ export const AvatarDropdown = () => {
   return (
     <div className="dropdown hover:scale-110 dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 p-0.5 rounded-full">
-          <img alt="User Avatar" src="/icons8-user-32.png" />
+        <div className="w-10 p-0.5 bg-white rounded-full">
+          <img alt="User Avatar" src="/user.svg" />
         </div>
       </div>
       {jwt ? (
