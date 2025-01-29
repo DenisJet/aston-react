@@ -6,11 +6,15 @@ import Footer from "../../components/Footer/Footer";
 export default function MainLayout() {
   return (
     <>
+	<div className="flex flex-col min-h-screen">
 	  <Header>
       <Navbar />
 	  </Header>
-      <Outlet />
+	  <main className="grow-1">
+       <Outlet /> 
+		</main> 
 	  <Footer/>
+	</div>
     </>
   );
 }

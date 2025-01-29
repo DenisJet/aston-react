@@ -1,99 +1,44 @@
-// import { Link, useNavigate } from "react-router";
-// import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
-// import { userActions } from "../../store/user/user.slice";
-// import { ROUTES } from "../../constants/routes.constants";
-
-// export default function Navbar() {
-//   const jwt = useAppSelector((state: RootState) => state.user.jwt);
-//   const navigate = useNavigate();
-//   const dispatch = useAppDispatch();
-
-//   const logout = () => {
-//     dispatch(userActions.logout());
-//     navigate(ROUTES.signin);
-//   };
-
-//   return (
-//     <div className="navbar bg-base-100 shadow-sm">
-//       <div className="flex-1">
-//         <Link to={ROUTES.home} className="link text-xl hover:opacity-50">
-//           Movie Search
-//         </Link>
-//       </div>
-//       <div className="flex gap-2">
-//         <input
-//           type="text"
-//           placeholder="Search"
-//           className="input input-bordered w-24 md:w-auto input-primary"
-//         />
-//         <div className="dropdown dropdown-end">
-//           <div
-//             tabIndex={0}
-//             role="button"
-//             className="btn btn-ghost btn-circle avatar"
-//           >
-//             <div className="w-10 rounded-full">
-//               <img alt="Tailwind CSS Navbar component" src="/user.svg" />
-//             </div>
-//           </div>
-//           {jwt ? (
-//             <ul
-//               tabIndex={0}
-//               className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
-//             >
-//               <li>
-//                 <Link to={ROUTES.favorites} className="text-base">
-//                   Favorites
-//                 </Link>
-//               </li>
-//               <li>
-//                 <Link to={ROUTES.history} className="text-base">
-//                   History
-//                 </Link>
-//               </li>
-//               <li>
-//                 <a className="text-base" onClick={logout}>
-//                   Logout
-//                 </a>
-//               </li>
-//             </ul>
-//           ) : (
-//             <ul
-//               tabIndex={0}
-//               className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
-//             >
-//               <li>
-//                 <Link to={ROUTES.signin} className="text-base">
-//                   Login
-//                 </Link>
-//               </li>
-//             </ul>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 
 
 import { AvatarDropdown } from './AvatarDropdown';
 import { Logo } from './Logo';
 import { SearchBar } from './SearchBar';
-// import { SearchInput } from './SearchInput';
-// import { UserAvatarDropdown } from './UserAvatarDropdown';
+import SearchBarDropdown from './SearchBarDropdown';
+
+// const Navbar = () => {
+//   return (
+//     <div className="navbar relative flex-col    gap-3 border-3 border-double sm:flex-row sm:justify-between  bg-base-100 shadow-sm">
+// 		{/* <div className="absolute bg-[url('/header-bg.png')] inset-0"></div> */}
+//       <div>	
+//         <Logo />
+//       </div>
+//       <div className="flex gap-2">
+//         <SearchBar />
+//         <AvatarDropdown />
+//       </div>
+//     </div>
+//   );
+// };
+
+
 
 const Navbar = () => {
-  return (
-    <div className="navbar flex-col gap-3 border-3 border-double sm:flex-row sm:justify-between bg-linear-to-t  from-sky-500 to-indigo-500 bg-base-100 shadow-sm">
-      <div>	
-        <Logo />
-      </div>
-      <div className="flex gap-2">
-        <SearchBar />
-        <AvatarDropdown />
-      </div>
-    </div>
-  );
-};
+	return (
+	  <div className="relative flex flex-col gap-3 border-3 border-double sm:flex-row sm:justify-between bg-base-100 shadow-sm overflow-hidden">
+		{/* Фон */}
+		<div className="absolute inset-0 bg-[url('/header-bg.png')] bg-cover bg-center opacity-50  grayscale-150"></div>
+  
+		{/* Контент */}
+		<div className="relative flex p-1 justify-center z-10">
+		  <Logo />
+		</div>
+		<div className="relative pb-2 justify-evenly flex items-center gap-2">
+		  <SearchBarDropdown/>
+		  <SearchBar />
+		  <AvatarDropdown />
+		</div>
+	  </div>
+	);
+  };
 
 export default Navbar;

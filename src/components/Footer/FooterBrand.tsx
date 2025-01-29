@@ -1,24 +1,44 @@
 const FooterBrand = () => {
 	return (
-	  <aside>
-		<svg
-		  width="50"
-		  height="50"
-		  viewBox="0 0 24 24"
-		  xmlns="http://www.w3.org/2000/svg"
-		  fillRule="evenodd"
-		  clipRule="evenodd"
-		  className="inline-block fill-current"
-		>
-		  <path d="M22.672 15.226l-2.432.811..."></path>
-		</svg>
-		<p className="font-bold">
-		  ReelQuest
-		  <br />
-		  Providing reliable infromation about modern films
+	  <aside className="flex flex-col gap-3 items-center text-center space-y-2">
+		{/* Логотип */}
+		<div className="w-[200px]  max-h-[30px]">
+		  <svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="200"
+			height="50"
+			viewBox="0 0 200 50"
+			fill="currentColor"
+		  >
+			<text
+			  x="50%"
+			  y="50%"
+			  fontFamily="Cinzel, serif"
+			  fontSize="32"
+			  letterSpacing={'5px'}
+			  fill="black"
+			  textAnchor="middle"
+			  dominantBaseline="middle"
+			  stroke="white"
+			  strokeWidth="2"
+			>
+			  ReelQuest
+			</text>
+		  </svg>
+		</div>
+  
+		{/* Описание */}
+		<p className="text-lg font-semibold text-white">
+		  Providing reliable information about modern films
 		</p>
-		<p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+  
+		{/* Авторские права */}
+		<p className="text-sm text-gray-50">
+		  Copyright © {new Date().getFullYear()} - All rights reserved
+		</p>
 	  </aside>
 	);
   };
-  export default FooterBrand
+  
+  export default FooterBrand;
+  
