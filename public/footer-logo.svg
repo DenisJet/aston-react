@@ -1,0 +1,23 @@
+<svg
+  className="animate-ping duration-3000 delay-1000"
+    xmlns="http://www.w3.org/2000/svg"
+    width="200"
+    height="50"
+    viewBox="0 0 200 50"
+    fill="currentColor"
+  >
+    <text
+      x="50%"
+      y="50%"
+      fontFamily="Cinzel, serif"
+      fontSize="32"
+      letterSpacing={'5px'}
+      fill="gold"
+      textAnchor="middle"
+      dominantBaseline="middle"
+      stroke="white"
+      strokeWidth="1"
+    >
+      ReelQuest
+    </text>
+  </svg>

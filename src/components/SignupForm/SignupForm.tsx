@@ -1,12 +1,12 @@
-import { Link, useNavigate } from "react-router";
-import { useAppDispatch } from "../../store/store";
-import { FormEvent, useEffect } from "react";
-import { register, userActions } from "../../store/user/user.slice";
-import { ROUTES } from "../../constants/routes.constants";
+import { Link, useNavigate } from 'react-router';
+import { useAppDispatch } from '../../store/store';
+import { FormEvent, useEffect } from 'react';
+import { register, userActions } from '../../store/user/user.slice';
+import { ROUTES } from '../../constants/routes.constants';
 import {
   useSelectJwt,
   useSelectRegisterErrorMessage,
-} from "../../store/user/user.selectors";
+} from '../../store/user/user.selectors';
 
 export type SignupForm = {
   email: {
@@ -38,7 +38,7 @@ export default function SignupForm() {
       register({
         email: email.value,
         password: password.value,
-      }),
+      })
     );
   };
 
